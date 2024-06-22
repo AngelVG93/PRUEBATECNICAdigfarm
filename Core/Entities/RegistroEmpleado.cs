@@ -2,7 +2,7 @@
 
 namespace Core.Entities
 {
-    public class RegistroEntrada
+    public class RegistroEmpleado
     {
         [Key]
         public int idRegistroEntrada { get; set; } 

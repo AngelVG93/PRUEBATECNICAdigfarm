@@ -7,6 +7,6 @@ namespace Core.Entities
         [Key]
         public int idTipoNovedad {  get; set; } 
         public string nombre { get; set; }
-        public virtual ICollection<RegistroEntrada>? RegistroEntrada { get; set; }   
+        public virtual ICollection<RegistroEmpleado>? RegistroEntrada { get; set; }   
     }
 }

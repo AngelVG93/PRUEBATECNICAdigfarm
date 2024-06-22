@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Infraestructure.Validators
 {
-    public class RegistroEntradaUpdateDtoValidator : AbstractValidator<RegistroEntradaUpdateDto>
+    public class RegistroEmpleadoUpdateDtoValidator : AbstractValidator<RegistroEmpleadoUpdateDto>
     {
-        public RegistroEntradaUpdateDtoValidator()
+        public RegistroEmpleadoUpdateDtoValidator()
         {
             RuleFor(attribute => attribute.idRegistroEntrada).Custom((st, context) =>
             {

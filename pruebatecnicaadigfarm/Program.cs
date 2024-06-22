@@ -28,8 +28,8 @@ builder.Services.AddSwaggerGen();
 
 #region Configuracion de validaciones
 builder.Services.AddScoped<IValidator<Empleado>, EmpleadoValidator>();
-builder.Services.AddScoped<IValidator<RegistroEntradaUpdateDto>, RegistroEntradaUpdateDtoValidator>();
-builder.Services.AddScoped<IValidator<RegistroEntrada>, RegistroEntradaValidator>();
+builder.Services.AddScoped<IValidator<RegistroEmpleadoUpdateDto>, RegistroEmpleadoUpdateDtoValidator>();
+builder.Services.AddScoped<IValidator<RegistroEmpleado>, RegistroEmpleadoValidator>();
 builder.Services.AddScoped<IValidator<TipoEmpledo>, TipoEmpledoValidator>();
 builder.Services.AddScoped<IValidator<TipoNovedad>, TipoNovedadValidator>();
 builder.Services.AddFluentValidationAutoValidation();
@@ -40,7 +40,7 @@ builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 #region Configuracion de inyeccion de dependencias 
 builder.Services.AddScoped<IAdminInterfaces, AdminInterfaces>();
 builder.Services.AddTransient<IEmpleadoService, EmpleadoService>();
-builder.Services.AddTransient<IRegistroEntradaService, RegistroEntradaService>();
+builder.Services.AddTransient<IRegistroEmpleadoService, RegistroEmpleadoService>();
 builder.Services.AddTransient<ITipoEmpledoService, TipoEmpledoService>();
 builder.Services.AddTransient<ITipoNovedadService, TipoNovedadService>();
 #endregion

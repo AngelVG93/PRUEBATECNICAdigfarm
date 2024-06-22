@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.DTOs
 {
-    public class RegistroEntradaUpdateDto
+    public class RegistroEmpleadoUpdateDto
     {
         public int idRegistroEntrada { get; set; }
         public int idTipoNovedad { get; set; }

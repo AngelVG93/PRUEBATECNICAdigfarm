@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.Configuration
 {
-    public class RegistroEntradaConfig : IEntityTypeConfiguration<RegistroEntrada>
+    public class RegistroEmpleadoConfig : IEntityTypeConfiguration<RegistroEmpleado>
     {
-        public void Configure(EntityTypeBuilder<RegistroEntrada> builder)
+        public void Configure(EntityTypeBuilder<RegistroEmpleado> builder)
         {
             builder.HasKey(e => e.idRegistroEntrada);
-            builder.ToTable("RegistroEntrada");
-            builder.Property(e => e.idRegistroEntrada).HasColumnName("idRegistroEntrada");
+            builder.ToTable("RegistroEmpleado");
+            builder.Property(e => e.idRegistroEntrada).HasColumnName("idRegistroEmpleado");
 
             builder.Property(e => e.idTipoNovedad).HasColumnName("idTipoNovedad");
             builder.Property(e => e.idEmpleado).HasColumnName("idEmpleado");

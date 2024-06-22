@@ -20,8 +20,8 @@ CREATE TABLE Empleado (
 	CONSTRAINT Empleado_TipoEmpledo_fk FOREIGN KEY (idTipoEmpleado) REFERENCES TipoEmpledo(idTipoEmpleado)
 );
 
-CREATE TABLE RegistroEntrada (
-    idRegistroEntrada int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE RegistroEmpleado (
+    idRegistroEmpleado int NOT NULL IDENTITY(1,1) PRIMARY KEY,
     idTipoNovedad int not null,
 	idEmpleado int not null,
 	horaEntrada datetime,

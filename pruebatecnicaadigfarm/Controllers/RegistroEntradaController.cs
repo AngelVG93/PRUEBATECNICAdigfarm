@@ -12,12 +12,12 @@ namespace pruebatecnicaadigfarm.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RegistroEntradaController : BaseController<RegistroEntrada,RegistroEntradaUpdateDto>
+    public class RegistroEntradaController : BaseController<RegistroEmpleado,RegistroEmpleadoUpdateDto>
     {
         public readonly IMapper _mapper;
-        public readonly IRegistroEntradaService _registroEntradaService;
+        public readonly IRegistroEmpleadoService _registroEntradaService;
 
-        public RegistroEntradaController(IRegistroEntradaService registroEntradaService, IMapper mapper, IValidator<RegistroEntrada> validator, IValidator<RegistroEntradaUpdateDto> validatorDto) : base(validator, validatorDto)
+        public RegistroEntradaController(IRegistroEmpleadoService registroEntradaService, IMapper mapper, IValidator<RegistroEmpleado> validator, IValidator<RegistroEmpleadoUpdateDto> validatorDto) : base(validator, validatorDto)
         {
             _registroEntradaService = registroEntradaService;
             _mapper = mapper;
@@ -26,12 +26,12 @@ namespace pruebatecnicaadigfarm.Controllers
         [HttpGet]
         public async Task<IActionResult> ConsultarNovedades([FromQuery] decimal cedula)
         {
-            var data = _mapper.Map<List<RegistroEntradaDto>>(await _registroEntradaService.ConsultarNovedades(cedula));
+            var data = _mapper.Map<List<RegistroEmpleadoDto>>(await _registroEntradaService.ConsultarNovedades(cedula));
              return Ok(data);
         }
 
         [HttpPatch]
-        public async Task<IActionResult> Patch([FromBody] RegistroEntradaUpdateDto registroEntradaUpdateDto)
+        public async Task<IActionResult> Patch([FromBody] RegistroEmpleadoUpdateDto registroEntradaUpdateDto)
         {
             BadRequestObjectResult actionResult = await ValidateAsyncDto(registroEntradaUpdateDto);
             if (actionResult != null)
@@ -39,20 +39,20 @@ namespace pruebatecnicaadigfarm.Controllers
                 {
                     return Ok(actionResult.Value);
                 }
-             return Ok(_mapper.Map<RegistroEntradaDto>(await _registroEntradaService.UpdateRegistroEntrada(_mapper.Map<RegistroEntrada>(registroEntradaUpdateDto))));
+             return Ok(_mapper.Map<RegistroEmpleadoDto>(await _registroEntradaService.UpdateRegistroEntrada(_mapper.Map<RegistroEmpleado>(registroEntradaUpdateDto))));
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] RegistroEntradaDto registroEntradaDto)
+        public async Task<IActionResult> Post([FromBody] RegistroEmpleadoDto registroEntradaDto)
         {
-            BadRequestObjectResult actionResult = await ValidateAsync(_mapper.Map<RegistroEntrada>(registroEntradaDto));
+            BadRequestObjectResult actionResult = await ValidateAsync(_mapper.Map<RegistroEmpleado>(registroEntradaDto));
             if (actionResult != null)
                 if (actionResult.StatusCode == 400)
                 {
                     return Ok(actionResult.Value);
                 }
-            return Ok(_mapper.Map<RegistroEntradaDto>(await _registroEntradaService.AddRegistroEntrada(_mapper.Map<RegistroEntrada>(registroEntradaDto))));
+            return Ok(_mapper.Map<RegistroEmpleadoDto>(await _registroEntradaService.AddRegistroEntrada(_mapper.Map<RegistroEmpleado>(registroEntradaDto))));
         }
 
     }

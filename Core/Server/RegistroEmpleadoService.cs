@@ -9,14 +9,14 @@ using System.Net.WebSockets;
 
 namespace Core.Server
 {
-    public class RegistroEntradaService : BaseService<RegistroEntrada, RegistroEntradaDto>, IRegistroEntradaService
+    public class RegistroEmpleadoService : BaseService<RegistroEmpleado, RegistroEmpleadoDto>, IRegistroEmpleadoService
     {
-        public RegistroEntradaService(IMapper mapper, IAdminInterfaces adminInterfaces) : base(mapper, adminInterfaces)
+        public RegistroEmpleadoService(IMapper mapper, IAdminInterfaces adminInterfaces) : base(mapper, adminInterfaces)
         {
 
         }
 
-        public async Task<RegistroEntrada> UpdateRegistroEntrada(RegistroEntrada registroEntrada)
+        public async Task<RegistroEmpleado> UpdateRegistroEntrada(RegistroEmpleado registroEntrada)
         {
             var buscarRegistroEntrada = await _adminInterfaces.registroEntradaRepository.GetById(registroEntrada.idRegistroEntrada);
             if (buscarRegistroEntrada == null)
@@ -33,12 +33,12 @@ namespace Core.Server
             return result;
         }
 
-        public async Task<List<RegistroEntrada>> ConsultarNovedades(decimal cedula)
+        public async Task<List<RegistroEmpleado>> ConsultarNovedades(decimal cedula)
         {
             return await _adminInterfaces.registroEntradaRepository.ConsultarNovedades(cedula);
         }
 
-        public async Task<RegistroEntrada> AddRegistroEntrada(RegistroEntrada registroEntrada)
+        public async Task<RegistroEmpleado> AddRegistroEntrada(RegistroEmpleado registroEntrada)
         {
             var empleado = await _adminInterfaces.empleadoRepository.GetById(registroEntrada.idEmpleado);
             if (empleado == null )
@@ -101,27 +101,6 @@ namespace Core.Server
                 throw new BadRequestBusinessException(logException);
             }
             return result;
-            /*
-             {
-              "idRegistroEntrada": 0,
-              "idTipoNovedad": 1,
-              "idEmpleado": 100,
-              "horaEntrada": null,
-              "horaSalida": "2024-06-22T20:30:29.648Z",
-              "fechaNovedad": "2024-06-22T07:24:29.648Z",
-              "horas": 0,
-              "descripcion": "string"
-            }
-
-              "idRegistroEntrada": 0,
-              "idTipoNovedad": 1,
-              "idEmpleado": 100,
-              "horaEntrada": "2024-06-22T11:15:48.560Z",
-              "horaSalida": null,
-              "fechaNovedad": "2024-06-22T07:48:48.560Z",
-              "horas": 0,
-              "descripcion": "string"
-             */
         }
         private decimal CalcularHoras(int minutos)
         {

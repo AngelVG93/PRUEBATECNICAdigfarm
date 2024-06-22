@@ -13,6 +13,6 @@ namespace Core.Entities
         public DateTime horaSalida { get; set; }
         public int idTipoEmpleado { get; set; }
         public virtual TipoEmpledo? IdTipoEmpledoNavigation { get; set; } 
-        public virtual ICollection<RegistroEntrada> ? RegistroEntradas { get; set; }
+        public virtual ICollection<RegistroEmpleado> ? RegistroEntradas { get; set; }
     }
 }

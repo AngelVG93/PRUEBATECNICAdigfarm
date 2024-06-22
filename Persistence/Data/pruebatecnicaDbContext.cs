@@ -7,7 +7,7 @@ namespace Persistence.Data
     public class pruebatecnicaDbContext(DbContextOptions<pruebatecnicaDbContext> options) : DbContext(options)
     {
         public virtual DbSet<Empleado> empleado { get; set; }
-        public virtual DbSet<RegistroEntrada> registroentrada { get; set; }
+        public virtual DbSet<RegistroEmpleado> registroentrada { get; set; }
         public virtual DbSet<TipoEmpledo> tipoempledo { get; set; }
         public virtual DbSet<TipoNovedad> tiponovedad { get; set; }
 

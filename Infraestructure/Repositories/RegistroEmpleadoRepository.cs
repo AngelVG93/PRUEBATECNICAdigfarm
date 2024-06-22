@@ -6,13 +6,13 @@ using Persistence.Data;
 
 namespace Infraestructure.Repositories
 {
-    public class RegistroEntradaRepository : BaseRepository<RegistroEntrada>, IRegistroEntradaRepository
+    public class RegistroEmpleadoRepository : BaseRepository<RegistroEmpleado>, IRegistroEmpleadoRepository
     {
-        public RegistroEntradaRepository(pruebatecnicaDbContext contex) : base(contex)
+        public RegistroEmpleadoRepository(pruebatecnicaDbContext contex) : base(contex)
         {
         }
 
-        public async Task<List<RegistroEntrada>> ConsultarNovedades(decimal cedula)
+        public async Task<List<RegistroEmpleado>> ConsultarNovedades(decimal cedula)
         {
             var data = await _entities.Where(x => x.idEmpleadoNavigation.cedula == cedula).ToListAsync();
             return data;

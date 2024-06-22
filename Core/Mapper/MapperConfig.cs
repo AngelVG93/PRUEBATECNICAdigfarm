@@ -9,8 +9,8 @@ namespace Core.Mapper
         public MapperConfig()
         {
             CreateMap<Empleado, EmpleadoDto>().ReverseMap();
-            CreateMap<RegistroEntrada, RegistroEntradaDto>().ReverseMap();
-            CreateMap<RegistroEntrada, RegistroEntradaUpdateDto>().ReverseMap();
+            CreateMap<RegistroEmpleado, RegistroEmpleadoDto>().ReverseMap();
+            CreateMap<RegistroEmpleado, RegistroEmpleadoUpdateDto>().ReverseMap();
             CreateMap<TipoEmpledo, TipoEmpledoDto>().ReverseMap();
             CreateMap<TipoNovedad, TipoNovedadDto>().ReverseMap();
         }

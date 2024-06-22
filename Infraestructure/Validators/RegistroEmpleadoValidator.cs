@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Infraestructure.Validators
 {
-    public class RegistroEntradaValidator : AbstractValidator<RegistroEntrada>
+    public class RegistroEmpleadoValidator : AbstractValidator<RegistroEmpleado>
     {
-        public RegistroEntradaValidator()
+        public RegistroEmpleadoValidator()
         {
             RuleFor(attribute => attribute.idEmpleado).Custom((st, context) =>
             {

@@ -11,12 +11,12 @@ namespace Infraestructure.Repositories
             _context = context;
         }
         private readonly IEmpleadoRepository? _empleadoRepository;
-        private readonly IRegistroEntradaRepository? _registroEntradaRepository;
+        private readonly IRegistroEmpleadoRepository? _registroEntradaRepository;
         private readonly ITipoEmpledoRepository? _tipoEmpledoRepository;
         private readonly ITipoNovedadRepository? _tipoNovedadRepository;
         public IEmpleadoRepository empleadoRepository => _empleadoRepository ?? new EmpleadoRepository(_context);
 
-        public IRegistroEntradaRepository registroEntradaRepository => _registroEntradaRepository ?? new RegistroEntradaRepository(_context);
+        public IRegistroEmpleadoRepository registroEntradaRepository => _registroEntradaRepository ?? new RegistroEmpleadoRepository(_context);
 
         public ITipoEmpledoRepository tipoEmpledoRepository => _tipoEmpledoRepository ?? new TipoEmpledoRepository(_context);
 

@@ -4,7 +4,7 @@ namespace Core.Interfaces.Repository
     public interface IAdminInterfaces : IDisposable
     {
         IEmpleadoRepository empleadoRepository { get; }
-        IRegistroEntradaRepository registroEntradaRepository { get; }
+        IRegistroEmpleadoRepository registroEntradaRepository { get; }
         ITipoEmpledoRepository tipoEmpledoRepository { get; }
         ITipoNovedadRepository tipoNovedadRepository { get; }
 
